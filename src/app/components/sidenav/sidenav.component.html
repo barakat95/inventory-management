@@ -1,0 +1,65 @@
+<aside
+  class="h-[calc(100vh-4rem)] p-4 bg-[#F9F8F6E5] max-w-[16rem] transition-all"
+  [style.width]="isCollapsed ? '4.5rem' : '16rem'"
+>
+  <ul class="nav justify-content-center">
+    <li class="flex justify-end p-2 cursor-pointer">
+      <span
+        class="material-symbols-outlined border rounded-sm hover:text-green-800"
+        (click)="isCollapsed = !isCollapsed"
+      >
+        sync_alt
+      </span>
+    </li>
+    <li class="hover:text-green-600 font-medium">
+      <a
+        routerLink="/home"
+        routerLinkActive="active"
+        class="flex items-center gap-2 px-2 py-4"
+      >
+        <span class="material-symbols-outlined"> dashboard </span>
+        <a class="nav-link">{{ !isCollapsed ? "Dashboard" : "" }}</a>
+      </a>
+    </li>
+    <li class="hover:text-green-600 font-medium">
+      <a
+        routerLink="/inventory"
+        routerLinkActive="active"
+        class="flex items-center gap-2 px-2 py-4"
+      >
+        <span class="material-symbols-outlined"> table </span>
+        <a class="nav-link">{{ !isCollapsed ? "Inventory" : "" }}</a>
+      </a>
+    </li>
+    <li class="hover:text-green-600 font-medium">
+      <a
+        routerLink="/home"
+        routerLinkActive="active"
+        class="flex items-center gap-2 px-2 py-4"
+      >
+        <span class="material-symbols-outlined">home</span>
+        <a class="nav-link">{{ !isCollapsed ? "Page 1" : "" }}</a>
+      </a>
+    </li>
+    <li class="hover:text-green-600 font-medium">
+      <a
+        routerLink="/home"
+        routerLinkActive="active"
+        class="flex items-center gap-2 px-2 py-4"
+      >
+        <span class="material-symbols-outlined">home</span>
+        <a class="nav-link">{{ !isCollapsed ? "Page 2" : "" }}</a>
+      </a>
+    </li>
+    <li class="hover:text-green-600 font-medium">
+      <a
+        routerLink="/home"
+        routerLinkActive="active"
+        class="flex items-center gap-2 px-2 py-4"
+      >
+        <span class="material-symbols-outlined">home</span>
+        <a class="nav-link">{{ !isCollapsed ? "Page 3" : "" }}</a>
+      </a>
+    </li>
+  </ul>
+</aside>

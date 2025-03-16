@@ -1,0 +1,73 @@
+<form class="mt-4 flex flex-col gap-8" [formGroup]="formGroup()">
+  <div class="flex flex-col gap-2">
+    <label for="itemCode">Item Code <span class="text-red-600">*</span></label>
+    <input
+      formControlName="itemCode"
+      type="text"
+      name="itemCode"
+      id="itemCode"
+      placeholder="Enter Item Name"
+      class="block h-[40px] px-4 py-2 rounded-sm text-gray-700 bg-gray-200 border border-gray-400 border border-gray-400 focus:border-blue-500 focus:outline-blue-500"
+    />
+    @if ((submitted() || formGroup().get('itemCode')?.touched) &&
+    formGroup().get('itemCode')?.hasError('required')) {
+    <p class="text-red-600 text-sm font-semibold">Field is required</p>
+    }
+  </div>
+  <div class="flex flex-col gap-2">
+    <label for="name">Name <span class="text-red-600">*</span></label>
+    <input
+      formControlName="name"
+      type="text"
+      name="name"
+      id="name"
+      placeholder="Enter Item Name"
+      class="block h-[40px] px-4 py-2 rounded-sm text-gray-700 bg-gray-200 border border-gray-400 focus:border-blue-500 focus:outline-blue-500"
+    />
+    @if ((submitted() || formGroup().get('name')?.touched) &&
+    formGroup().get('name')?.hasError('required')) {
+    <p class="text-red-600 text-sm font-semibold">Field is required</p>
+    }
+  </div>
+  <div class="flex flex-col gap-2">
+    <label for="category">Category</label>
+    <select
+      formControlName="category"
+      name="category"
+      id="category"
+      class="block h-[40px] px-4 py-2 rounded-sm text-gray-700 bg-gray-200 border border-gray-400 focus:border-blue-500 focus:outline-blue-500"
+    >
+      <option [value]="null" disabled selected>
+        Select Category <span class="text-red-600">*</span>
+      </option>
+      "> @for (category of categories(); track $index) {
+      <option [value]="category">{{ category }}</option>
+      }
+    </select>
+    @if ((submitted() || formGroup().get('category')?.touched)
+    &&formGroup().get('category')?.hasError('required')) {
+    <p class="text-red-600 text-sm font-semibold">Field is required</p>
+    }
+  </div>
+  <div class="flex flex-col gap-2">
+    <label for="quantity">Quantity <span class="text-red-600">*</span></label>
+    <input
+      formControlName="quantity"
+      type="number"
+      min="0"
+      name="quantity"
+      id="quantity"
+      placeholder="Quantity"
+      class="block h-[40px] px-4 py-2 rounded-sm text-gray-700 bg-gray-200 border border-gray-400 focus:border-blue-500 focus:outline-blue-500"
+    />
+    @if ((submitted() || formGroup().get('quantity')?.touched) &&
+    formGroup().get('quantity')?.hasError('required')) {
+    <p class="text-red-600 text-sm font-semibold">Field is required</p>
+    } @else if((submitted() || formGroup().get('quantity')?.touched)
+    &&formGroup().get('quantity')?.hasError('min')) {
+    <p class="text-red-600 text-sm font-semibold">
+      Quantity must be greater than 0
+    </p>
+    }
+  </div>
+</form>

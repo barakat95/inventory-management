@@ -1,0 +1,7 @@
+.sidenav.collapsed {
+  width: 90px;
+}
+
+.active {
+  color: oklch(0.627 0.194 149.214);
+}
